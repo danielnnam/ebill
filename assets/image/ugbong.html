@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebill platform</title>
+    <!-- Bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .button {
+            position: relative;
+            padding: 10px 22px;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            /* background-color: #2a93e8; */
+            transition: all 0.2s ease;
+        }
+
+        .button:active {
+            transform: scale(0.96);
+        }
+
+        .button:before,
+        .button:after {
+            position: absolute;
+            content: "";
+            width: 150%;
+            left: 50%;
+            height: 100%;
+            transform: translateX(-50%);
+            z-index: -1000;
+            background-repeat: no-repeat;
+        }
+
+        .button:hover:before {
+            top: -70%;
+            background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+                10% 10%, 18% 18%;
+            background-position: 50% 120%;
+            animation: greentopBubbles 0.6s ease;
+        }
+
+        @keyframes greentopBubbles {
+            0% {
+                background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+                40% 90%, 55% 90%, 70% 90%;
+            }
+
+            50% {
+                background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+                50% 50%, 65% 20%, 90% 30%;
+            }
+
+            100% {
+                background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+                50% 40%, 65% 10%, 90% 20%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        .button:hover::after {
+            bottom: -70%;
+            background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+            background-position: 50% 0%;
+            animation: greenbottomBubbles 0.6s ease;
+        }
+
+        @keyframes greenbottomBubbles {
+            0% {
+                background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+                70% -10%, 70% 0%;
+            }
+
+            50% {
+                background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+                105% 0%;
+            }
+
+            100% {
+                background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+                110% 10%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <section>
+        <nav class="navbar navbar-expand-lg" style="background-color: #00BFFF;">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-5 mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About-us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
+                        </li>                   
+                    </ul>
+                    <!-- Call to action -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <button class="me-2 btn btn-sm btn-outline-dark">Login</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-sm btn-light">Signup</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- Header -->
+    <section class="position-relative overflow-hidden">
+        <div class="container p-4 position-relative">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-md-6">
+                    <h3 class="fw-bold">
+                        Secure, Fast, and Affordable Airtime, Data, and Bill Payment Services from Ebill
+                    </h3>
+                    <p class="text-muted">
+                        We are committed to delivering the best user experience, ensuring that your online needs are met efficiently and reliably.
+                    </p>
+  
+                    <button class="btn button btn-primary px-4 py-2">Explore More</button>
+                    
+                    <div class="d-flex align-items-center p-3 border rounded shadow-sm mt-3" style="max-width: 350px;">
+                        <!-- Profile Pictures & Happy Customers Text -->
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="position-relative" style="width: 80px;">
+                                <img src="/img/smile.avif" class="rounded-circle border" style="width: 40px; height: 40px; position: absolute; left: 0; z-index: 3;">
+                                <img src="/img/afro-haircut_273609-18184.jpg" class="rounded-circle border" style="width: 40px; height: 40px; position: absolute; left: 20px; z-index: 2;">
+                                <img src="/img/dreads-posing-outdoors_1262-20513.avif" class="rounded-circle border" style="width: 40px; height: 40px; position: absolute; left: 40px; z-index: 1; ">
+                            </div>
+                        </div>
+                    
+                        <!-- <div class="d-flex align-items-center flex-wrap p-2 border rounded shadow-sm" style="max-width: 600px;"> -->
+                            <!-- Text Section with Happy Customers and Rating -->
+                            <div class="d-flex align-items-center mb-2 mb-sm-0 ms-3">
+                                <!-- Happy Customers Text -->
+                                <div class="d-flex flex-column align-items-start mr-3">
+                                    <div class="mb-1">
+                                        <span class="fw-bold" style="font-size: 14px;">2,291+</span><br>
+                                        <span class="text-muted" style="font-size: 10px;">Happy Customers</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- Vertical Line Separator -->
+                                <div class="d-none d-sm-block" style="width: 1px; height: 40px; background-color: #ccc; margin: 0 10px;"></div>
+                        
+                                <!-- Rating Section -->
+                                <div class="d-flex flex-column align-items-start">
+                                    <div class="d-fle align-items-center">
+                                        <span class="fw-bold mb-3" style="font-size: 14px; margin-right: 5px;">4.8/5 <br></span>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-star text-warning" style="font-size: 14px;"></i>
+                                            <i class="fas fa-star text-warning" style="font-size: 14px;"></i>
+                                            <i class="fas fa-star text-warning" style="font-size: 14px;"></i>
+                                            <i class="fas fa-star text-warning" style="font-size: 14px;"></i>
+                                            <i class="fas fa-star-half-alt text-warning" style="font-size: 14px;"></i>
+                                            <span class="text-muted ms-2" style="font-size: 12px;">Rating</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                    
+                    <!-- FontAwesome for Icons -->
+                    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+                    
+                </div>
+                <!-- Image Content -->
+                <div class="col-md-6 text-center position-relative">
+                    <img src="/img/pjbrbdkj.png" class="img-fluid" alt="Ebill Services" style="border-radius: 45%; max-width: 80%; z-index: 2; position: relative;">
+                </div>
+            </div>
+    
+            <!-- Container-Aligned Wavy Line -->
+            <div class="position-absolute start-0 end-0">
+                <svg class="" height="30" viewBox="0 0 1140 60" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" stroke="#007BFF" stroke-width="5" d="M0,30 C380,60 760,0 1140,30"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section>
+        <div class="container mt-5">
+            <div class="text-center">
+                <h3>Our Exclusive Services</h3>
+                <div class="row p-3">
+                    <div class="col-md-4 d-flex">
+                        <div class="p-4 shadow rounded-2 h-100 d-flex flex-column text-center">
+                            <i class="fas fa-mobile-alt text-primary fs-2 mb-2"></i>
+                            <h6>Buy Airtime/Data</h6>
+                            <p class="flex-grow-1">Stay connected online 24/7 with our variety of airtime and data options including daily, weekly, and monthly plans tailored to meet your specific requirements.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div class="p-3 shadow rounded-2 h-100 d-flex flex-column text-center">
+                            <i class="fas fa-file-invoice-dollar text-success fs-2 mb-2"></i>
+                            <h6>Bills Payment</h6>
+                            <p class="flex-grow-1">Ebill allows you to conveniently pay your bills such as electricity, cable TV, internet, and educational services from the comfort of your home or on-the-go.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <div class="p-2 px-3 shadow rounded-2 h-100 d-flex flex-column text-center">
+                            <i class="fas fa-exchange-alt text-warning fs-2 mb-2"></i>
+                            <h6>Airtime to Cash</h6>
+                            <p class="flex-grow-1">Get ready to make extra cash! Convert your unused airtime to cash with our airtime-to-cash service. Say goodbye to wasted airtime and hello to instant cash in your wallet or bank account—the choice is yours! <br> Enjoy on-the-go.</p>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why choose us -->
+    <section>
+        <div class="container mt-5">
+            <div class="text-center">
+                <h3>Why Choose Us?</h3>
+                <p class="col-9 mx-auto">We strive to offer the best for our customers like you with our Fast, Secured and Affordable airtime, data and bills payment services. You can be rest assured for instant purchase and activation.</p>
+            </div>
+
+            <section class="container py-5">
+                <div class="row align-items-center">
+                  <!-- Features List -->
+                  <div class="col-lg-6">
+                    <!-- 24/7 Customer Support -->
+                    <div class="d-flex align-items-start mb-4">
+                      <div class="bg-primary rounded-circle p-3 me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-headset" viewBox="0 0 16 16">
+                          <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold mb-2">24/7 Customer Support</h5>
+                        <p class="text-muted mb-0">Our Customer Care Support Team is on seat to attend to your request and resolve any challenge. You can contact us as we anticipate your call or message.</p>
+                      </div>
+                    </div>
+              
+                    <!-- Affordability and Fastness -->
+                    <div class="d-flex align-items-start mb-4">
+                      <div class="bg-primary rounded-circle p-3 me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-lightning" viewBox="0 0 16 16">
+                          <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5zM6.374 1 4.168 8.5H7.5a.5.5 0 0 1 .478.647L6.78 13.04 11.478 7H8a.5.5 0 0 1-.474-.658L9.306 1H6.374z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold mb-2">Affordability and Fastness</h5>
+                        <p class="text-muted mb-0">Our services are very affordable and fast to purchase without delay in activation.</p>
+                      </div>
+                    </div>
+              
+                    <!-- Accessibility -->
+                    <div class="d-flex align-items-start mb-4">
+                      <div class="bg-primary rounded-circle p-3 me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-universal-access" viewBox="0 0 16 16">
+                          <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6 5.5l-4.535-.442A.531.531 0 0 1 1.531 4H14.47a.531.531 0 0 1 .066 1.058L10 5.5V9l.452 6.42a.535.535 0 0 1-1.053.174L8.243 9.97c-.064-.252-.422-.252-.486 0l-1.156 5.624a.535.535 0 0 1-1.053-.174L6 9V5.5Z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold mb-2">Accessibility</h5>
+                        <p class="text-muted mb-0">No limit or restriction when using LIVEDATA, you are liberty to operate and access your history or information.</p>
+                      </div>
+                    </div>
+              
+                    <!-- Security Measures -->
+                    <div class="d-flex align-items-start">
+                      <div class="bg-primary rounded-circle p-3 me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-shield-check" viewBox="0 0 16 16">
+                          <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                          <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold mb-2">Security Measures</h5>
+                        <p class="text-muted mb-0">Our security measures are configured to detect and protect any fraudulent activity. No worry, our transaction history and personal details are safe and intact.</p>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <!-- Image -->
+                  <div class="col-lg-6 mt-5 mt-lg-0">
+                    <img src="/img/OIP.jpg" alt="Customer using mobile app" class="img-fluid rounded-4 shadow-lg" style="width: 100%;">
+                  </div>
+                </div>
+              </section>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
