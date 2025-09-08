@@ -20,6 +20,8 @@
             --text-color: #2b2d42;
             --light-color: #f8f9fa;
         }
+
+        /* ========= Hero Section ========= */
         .hero-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 93vh;
@@ -53,6 +55,9 @@
             filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));    
             border-radius: 5px;
         }
+
+
+        /* Floating animation for hero image */
         .floating {
             animation: float 6s ease-in-out infinite;
         }
@@ -68,6 +73,8 @@
                 transform: translateY(0px);
             }
         }
+
+
         /* ========= Buttons ========= */
         /* Primary Call-to-Action button */
         .cta-btn {
@@ -82,10 +89,34 @@
             box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
         }
 
+
+        /* ========= Decorative Shapes ========= */
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .shape-1 {
+            top: 15%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        .shape-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
-    
+
     <!-- ===== Hero Section ===== -->
     <section class="hero-section mt-5">
 
