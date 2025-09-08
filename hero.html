@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <style>
+         /* ========= Root Color Variables ========= */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --text-color: #2b2d42;
+            --light-color: #f8f9fa;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 93vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #555;
+            max-width: 600px;
+        }
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));    
+            border-radius: 5px;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        /* ========= Buttons ========= */
+        /* Primary Call-to-Action button */
+        .cta-btn {
+            padding: 0.4rem 0.6rem;
+            background-color: #00008B; /* Deep blue */
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- ===== Hero Section ===== -->
+    <section class="hero-section mt-5">
+
+        <!-- Decorative background shapes (styled with CSS) -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <!-- ===== Left Column: Text Content ===== -->
+                <div class="col-lg-6 hero-content mt-4 order-lg-0 order-1">
+                    <!-- Hero Title -->
+                    <h1 class="hero-title">Instant Recharge & Bill Payments</h1>
+                    
+                    <!-- Subtitle / Description -->
+                    <p class="hero-subtitle">
+                        Experience the fastest and most secure way to recharge your phone, 
+                        pay bills, and purchase data bundles in seconds.
+                    </p>
+
+                    <!-- Call-to-Action Button -->
+                    <a href="#" class="btn cta-btn">
+                        Get Started <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+
+                <!-- ===== Right Column: Hero Image ===== -->
+                <div class="col-lg-6">
+                    <img src="assets/image/hand-drawn-young-people-using-smartphones_23-2148843596.avif" 
+                        alt="Mobile Recharge Illustration" 
+                        class="hero-image floating img-fluid">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
